@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.material-input {
+  position: relative; /* So we can position elements absolutely relative to this element */
+  margin-bottom: 32px;
+}
+
+input {
+  display: block;
+  border: none;
+  border-bottom: 1px solid grey;
+  height: 32px;
+  transition: 0.1s ease border;
+}
+
+input:focus,
+input.used {
+  border-bottom-color: rebeccapurple;
+  border-bottom-width: 2px;
+}
+
+input:focus {
+  outline: none;
+}
+
+label {
+  color: grey;
+  position: absolute;
+  top: 8px;
+  transition: 0.1s ease all;
+  /* So we can't accidentally click the text, not the input */
+  pointer-events: none;
+}
+
+input[required] ~ label:after {
+  content: ' *';
+}
+
+input:focus ~ label,
+input.used ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: rebeccapurple;
+}
+.used:invalid {
+  border-bottom-color: red;
+}
+.used:invalid ~ label {
+  color: red;
+}
