@@ -4,53 +4,161 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  background: #BDBDBD;
+  margin: 0;
+  padding: 0;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+.navbar {
+  display: inline-block;
+  width: 100%;
+  background: #3F51B5;
+  color: #FFFFFF;
+  padding-left: 16px;
+}
+
+.container {
+  display: flex;
+}
+
+.section {
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background: white;
+  margin: 16px;
+  padding: 16px;
+}
+
+/*
+  Fancy input boxes!!!
+*/
+/* do not group these rules or browsers break */
+input::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0);
+  transition: 0.1s ease all;
+}
+input:-moz-placeholder {
+  /* FF 4-18 */
+  color: rgba(0, 0, 0, 0);
+  transition: 0.1s ease all;
+}
+input::-moz-placeholder {
+  /* FF 19+ */
+  color: rgba(0, 0, 0, 0);
+  transition: 0.1s ease all;
+}
+input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: rgba(0, 0, 0, 0);
+  transition: 0.1s ease all;
 }
 
 .material-input {
   position: relative; /* So we can position elements absolutely relative to this element */
-  margin-bottom: 32px;
+  margin-top: 32px;
 }
 
-input {
+.material-input input {
   display: block;
   border: none;
   border-bottom: 1px solid grey;
   height: 32px;
-  transition: 0.1s ease border;
+  transition: 0.2s ease all;
+  font-size: 18px;
+  width: 100%;
 }
 
-input:focus,
-input.used {
-  border-bottom-color: rebeccapurple;
+.material-input input:hover {
+  border-bottom-width: 2px;
+  border-bottom-color: #0e0e0e;
+}
+
+.material-input input:focus,
+.material-input input.used {
+  border-bottom-color: #303F9F;
   border-bottom-width: 2px;
 }
 
-input:focus {
+.material-input input:focus {
   outline: none;
 }
 
-label {
+.material-input label {
   color: grey;
   position: absolute;
-  top: 8px;
-  transition: 0.1s ease all;
-  /* So we can't accidentally click the text, not the input */
+  bottom: 8px;
+  transition: 0.2s ease all;
+  /* So we can't accidentally click the text, not the text input */
   pointer-events: none;
 }
 
-input[required] ~ label:after {
-  content: ' *';
+.material-input input[required] ~ label::after,{
+  content: " *";
 }
 
-input:focus ~ label,
-input.used ~ label {
-  top: -20px;
+.material-input input:focus ~ label,
+.material-input input.used ~ label {
+  bottom: 32px;
   font-size: 14px;
-  color: rebeccapurple;
+  color: #303F9F;
 }
-.used:invalid {
+.material-input input.used:invalid {
   border-bottom-color: red;
 }
-.used:invalid ~ label {
+.material-input input.used:invalid ~ label {
   color: red;
+}
+
+/* do not group these rules or browsers break */
+.material-input input:focus::-webkit-input-placeholder,
+.material-input input.used::-webkit-input-placeholder {
+  color: #C5CAE9;
+}
+.material-input input:focus::-moz-placeholder,
+.material-input input.used::-moz-placeholder {
+  /* FF 4-18 */
+  color: #C5CAE9;
+}
+.material-input input:focus:-moz-placeholder,
+.material-input input.used:-moz-placeholder {
+  /* FF 19+ */
+  color: #C5CAE9;
+}
+.material-input input:focus::-ms-input-placeholder,
+.material-input input.used::-ms-input-placeholder {
+  /* IE 10+ */
+  color: #C5CAE9;
+}
+
+
+/*
+ * Room Selection
+ */
+.formpair label {
+  padding-left: 8px;
+}
+
+.zoom {
+  display: inline-block;
+  overflow: hidden;
+}
+.zoom img {
+  max-width: 100%;
+  transition: 0.3s ease all;
+}
+.zoom img:hover {
+  transform: scale(2);
+}
+
+.total {
+  font-size: 32pt;
 }

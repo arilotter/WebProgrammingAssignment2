@@ -5,44 +5,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">    
+    <title>Book My Funny Hotel</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <nav class="navbar">
+        <h1>Book My Funny Hotel</h1>
+    </nav>
     <form>
-        <div class="material-input">
-            <input type="text" name="name" required>
-            <label for="name">Name</label>
-        </div>
-        <div class="material-input">
-            <input type="email" name="email" required>
-            <label for="email">Email</label>
-        </div>
-        <div class="material-input">
-            <input type="text" name="street" required>
-            <label for="street">Street Name</label>
-        </div>
-        <div class="material-input">
-            <input type="text" name="number" required>
-            <label for="number">House Number</label>
-        </div>
-        <div class="material-input">
-            <input type="text" name="city" required>
-            <label for="city">City</label>
-        </div>
-        <div class="material-input">
-            <input type="text" name="postalcode" required>
-            <label for="postalcode">Postal Code</label>
-        </div>
-        <div class="material-input">
-            <input type="text" name="phone" required>
-            <label for="phone">Phone</label>
-        </div>
-        <div class="material-input">
-            <input type="text" name="country" required>
-            <label for="country">Country</label>
+        <div class="container">
+            <div class="section">
+                <h2>Your Information</h2>
+                <div class="material-input">
+                    <input type="text" name="name" placeholder="Jane Smith" required>
+                    <label for="name">Name</label>
+                </div>
+                <div class="material-input">
+                    <input type="email" name="email" placeholder="hello@example.com" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="material-input">
+                    <input type="number" name="number" placeholder="12" required>
+                    <label for="number">House Number</label>
+                </div>
+                <div class="material-input">
+                    <input type="text" name="street" placeholder="Main St." required>
+                    <label for="street">Street Name</label>
+                </div>
+                <div class="material-input">
+                    <input type="text" name="city" placeholder="Toronto" required>
+                    <label for="city">City</label>
+                </div>
+                <div class="material-input">
+                    <input type="text" name="postalcode" placeholder="H0H 0H0" required>
+                    <label for="postalcode">Postal Code</label>
+                </div>
+                <div class="material-input">
+                    <input type="tel" name="phone" placeholder="416-000-0000" required>
+                    <label for="phone">Phone</label>
+                </div>
+                <div class="material-input">
+                    <input type="text" name="country" placeholder="Canada" required>
+                    <label for="country">Country</label>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Booking Details</h2>
+                <div class="material-input">
+                    <input type="date" name="start-date" required>
+                    <label for="start-date">Arrival Date</label>
+                </div>
+                <div class="material-input">
+                    <input type="date" name="end-date" required>
+                    <label for="end-date">Departure Date</label>
+                </div>
+                <div class="material-input">
+                    <input type="number" name="adults" placeholder="1" min=0 max=2 required>
+                    <label for="adults">Number of adults (13+ yrs old)</label>
+                </div>
+                <div class="material-input">
+                    <input type="number" name="children" placeholder="0" min=0 max=5 required>
+                    <label for="children">Number of children (0-12 yrs old)</label>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Options</h2>
+                <div id="room-selection">
+                    <h3>Room Type</h3>
+                    <div class="formpair">
+                        <input type="radio" name="room" value="standard" id="standard" required>
+                        <label for="standard">Standard ($100)</label>
+                    </div>
+                    <div class="formpair">
+                        <input type="radio" name="room" value="spacious" id="spacious" required>
+                        <label for="spacious">Spacious ($120)</label>
+                    </div>
+                    <div class="formpair">
+                        <input type="radio" name="room" value="luxury" id="luxury" required>
+                        <label for="luxury">Luxury ($150)</label>
+                    </div>
+                </div>
+                <div>
+                    <h3>Extras</h3>
+                    <div class="formpair">
+                        <input type="checkbox" name="meals" id="meals" value="checked" required>
+                        <label for="meals">Meals Included ($40)</label>
+                    </div>
+                    <div class="formpair">
+                        <input type="checkbox" name="pool" id="pool" value="checked" required>
+                        <label for="pool">Pool View ($20)</label>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="zoom">
+                    <img src="hotel.jpg">
+                </div>
+                <h2 class="total">
+                    <span id="total"></span>
+                </h2>
+            </div>
         </div>
     </form>
     <script src="main.js"></script>
