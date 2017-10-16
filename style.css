@@ -3,44 +3,66 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  background: #BDBDBD;
+  font-family: "Lato", sans-serif;
+  background: #bfe9ff;
   margin: 0;
   padding: 0;
+  background: linear-gradient(
+    to bottom,
+    #1488cc,
+    #2b32b2
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  min-height: 100vh;
+}
+
+h2 {
+  margin: 0px;
+  font-size: 1.9em;
+  font-weight: 900;
 }
 
 form {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 .navbar {
   display: inline-block;
   width: 100%;
-  background: #3F51B5;
-  color: #FFFFFF;
-  padding-left: 16px;
+  background: linear-gradient(to right, #ff5f6d, #ffc371); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  font-weight: 900;
+  font-size: 1.2em;
+  text-align: center;
 }
 
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+  grid-auto-rows: minmax(100px, auto);
 }
 
-.section {
-  border-radius: 2px;
+section {
+  border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  background: white;
+  background: hsla(0, 0%, 100%, 1);
   margin: 16px;
   padding: 16px;
+  line-height: 1.5;
 }
 
 /*
-  Fancy input boxes!!!
-*/
+ * Fancy input boxes!!!
+ */
+
 /* do not group these rules or browsers break */
 input::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0);
@@ -64,7 +86,7 @@ input:-ms-input-placeholder {
 
 .material-input {
   position: relative; /* So we can position elements absolutely relative to this element */
-  margin-top: 32px;
+  margin-top: 40px;
 }
 
 .material-input input {
@@ -75,6 +97,8 @@ input:-ms-input-placeholder {
   transition: 0.2s ease all;
   font-size: 18px;
   width: 100%;
+  background: transparent;
+  padding-left: 8px;
 }
 
 .material-input input:hover {
@@ -84,12 +108,16 @@ input:-ms-input-placeholder {
 
 .material-input input:focus,
 .material-input input.used {
-  border-bottom-color: #303F9F;
+  border-bottom-color: #1488cc;
   border-bottom-width: 2px;
+  padding: 0px;
 }
 
 .material-input input:focus {
   outline: none;
+}
+.material-input input:focus ~ label {
+  border-width: 2px;
 }
 
 .material-input label {
@@ -99,47 +127,79 @@ input:-ms-input-placeholder {
   transition: 0.2s ease all;
   /* So we can't accidentally click the text, not the text input */
   pointer-events: none;
+  border-radius: 11px;
+  border: 0px solid #1488cc;
 }
 
-.material-input input[required] ~ label::after,{
+.material-input input[required] ~ label::after {
   content: " *";
 }
 
+.material-input input:focus ~ label {
+  padding: 2px 6px;
+}
 .material-input input:focus ~ label,
 .material-input input.used ~ label {
   bottom: 32px;
   font-size: 14px;
-  color: #303F9F;
+  color: #1488cc;
 }
 .material-input input.used:invalid {
   border-bottom-color: red;
 }
 .material-input input.used:invalid ~ label {
+  border-color: red;
   color: red;
 }
 
 /* do not group these rules or browsers break */
 .material-input input:focus::-webkit-input-placeholder,
 .material-input input.used::-webkit-input-placeholder {
-  color: #C5CAE9;
+  color: #c5cae9;
 }
 .material-input input:focus::-moz-placeholder,
 .material-input input.used::-moz-placeholder {
   /* FF 4-18 */
-  color: #C5CAE9;
+  color: #c5cae9;
 }
 .material-input input:focus:-moz-placeholder,
 .material-input input.used:-moz-placeholder {
   /* FF 19+ */
-  color: #C5CAE9;
+  color: #c5cae9;
 }
 .material-input input:focus::-ms-input-placeholder,
 .material-input input.used::-ms-input-placeholder {
   /* IE 10+ */
-  color: #C5CAE9;
+  color: #c5cae9;
 }
 
+.material-input i {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  pointer-events: none;
+  background: white;
+}
 
+input[type="submit"] {
+  background: linear-gradient(to top, #ff5f6d, #ffc371);
+  font-size: 32pt;
+  border: 4px solid #ff5f6d;
+  padding: 16px;
+  border-radius: 999px;
+  color: white;
+  transition: 0.2s ease all;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);  
+}
+
+input[type="submit"]:active {
+  background: linear-gradient(to bottom, #ff5f6d, #ffc371);
+}
+input[type="submit"]:hover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);  
+}
 /*
  * Room Selection
  */
@@ -150,15 +210,96 @@ input:-ms-input-placeholder {
 .zoom {
   display: inline-block;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 .zoom img {
   max-width: 100%;
   transition: 0.3s ease all;
+  transform: scale(1.5);
 }
 .zoom img:hover {
-  transform: scale(2);
+  transform: scale(5);
 }
 
 .total {
   font-size: 32pt;
+}
+
+#image-section {
+  grid-column: 1 / span 4;
+}
+
+#options-section {
+  grid-column: 1 / span 4;
+  grid-row: 3;
+}
+
+#info-section {
+  grid-row: 2;
+  grid-column: 1 / span 4;
+}
+
+#details-container {
+  display: grid;
+  grid-template-columns: 256px minmax(200px, 1.25fr);
+  grid-gap: 7px;
+  grid-column-gap: 64px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+#dates {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+#room-selection {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+#extras {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#details-container h3 {
+  margin: 0 0 8px 0;
+  font-weight: 900;
+  font-size: 150%;
+}
+
+#bill {
+  grid-column: 1 / span 4;
+  grid-row: 4;
+  text-align: center;
+}
+
+#bill pre {
+  display: inline-block;
+  background: rgba(255, 208, 0, 0.3);
+  border-radius: 5px;
+  height: 60%;
+  width: 100%;
+}
+
+/* If wider than 1080p */
+@media only screen and (min-width: 1080px) {
+  #image-section {
+    grid-column: 1 / span 3;
+  }
+
+  #options-section {
+    grid-column: 1 / span 3;
+    grid-row: 2;
+  }
+
+  #info-section {
+    grid-row: 1;
+    grid-column: 4;
+  }
+  #bill {
+    grid-column: 4;
+    grid-row: 2;
+  }
 }
